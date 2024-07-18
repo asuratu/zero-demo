@@ -1,0 +1,14 @@
+###
+GRPC localhost:6002/user.User/Ping
+
+{
+    "ping": "John Doe"
+}
+
+
+
+
+
+
+
+

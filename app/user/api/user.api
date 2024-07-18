@@ -1,0 +1,28 @@
+info (
+	title:  "user api"
+	desc:   "用户系统"
+	author: "AsuraTu"
+	email:  "455224159@qq.com"
+)
+
+type UserInfoByIdReq {
+	Id int64 `path:"id"`
+}
+
+type SimpleUserInfoReply {
+	Id     int64  `json:"id"`
+	Name   string `json:"name"`
+	City   string `json:"city"`
+	Avatar string `json:"avatar"`
+}
+
+@server (
+	prefix: user/v1
+	group:  user
+)
+service user-api {
+	@doc "根据id获取用户详情"
+	@handler getUserInfoById
+	get /users/:id (UserInfoByIdReq) returns (SimpleUserInfoReply)
+}
+
