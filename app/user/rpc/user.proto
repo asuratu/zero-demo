@@ -6,21 +6,21 @@ option go_package="./user";
 message Request {
   string ping = 1;
 }
-
 message Response {
   string pong = 1;
+}
+service Ping {
+  rpc Ping(Request) returns(Response);
 }
 
 message GetUserRequest {
   int64 id = 1;
 }
-
 message GetUserResponse {
   int64 id = 1;
   string nickname = 2;
   string mobile = 3;
 }
-
 message CreateUserRequest {
   string nickname = 1;
   string mobile = 2;
@@ -29,11 +29,9 @@ message CreateUserRequest {
   string info = 7;
   string introduction = 8;
 }
-
 message CreateUserResponse {
   int64 id = 1;
 }
-
 message UpdateUserRequest {
   string nickname = 1;
   string mobile = 2;
@@ -43,14 +41,8 @@ message UpdateUserRequest {
   string introduction = 8;
   int64 id = 9;
 }
-
 message UpdateUserResponse {
 }
-
-service Ping {
-  rpc Ping(Request) returns(Response);
-}
-
 service User {
   rpc GetUser(GetUserRequest) returns(GetUserResponse);
   rpc CreateUser(CreateUserRequest) returns(CreateUserResponse);
