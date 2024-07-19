@@ -11,3 +11,14 @@ type SimpleUserInfoReply struct {
 type UserInfoByIdReq struct {
 	Id int64 `path:"id"`
 }
+
+type UserRegisterReq struct {
+	Name     string `json:"name"`
+	Password string `json:"password"`
+	City     string `json:"city"`
+	Avatar   string `json:"avatar"`
+}
+
+type UserRegisterRes struct {
+	Id int64 `json:"id"`
+}
